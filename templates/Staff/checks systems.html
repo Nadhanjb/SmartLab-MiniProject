@@ -1,0 +1,26 @@
+{% extends 'Staff/staffindex.html' %}
+{% block body %}
+
+<body>
+<form id="form1" name="form1" method="post" action="" >
+  <table width="200" border="1" class="table table-dark table-striped">
+    <tr>
+      <td colspan="2" align="center"><label><div class="card" style="width: 18rem;">
+  <img class="card-img-top" src="../media/system.png" height="100px" width="50px">
+  <div class="card-body">
+    <p class="card-text">{{ s }}</p>
+  </div>
+          </div></label></td>
+    </tr>
+    <tr>
+      <td align="left"><label><a href="/process_list/{{ s }}" class="btn btn-secondary">Process list</a></label></td>
+      <td align="right"><label><a href="#" class="btn btn-secondary">Screenshot</a></label></td>
+    </tr>
+    <tr>
+      <td align="left"><label><a href="#" class="btn btn-secondary">Restart</a></label></td>
+      <td align="right"><label><a href="#" class="btn btn-secondary">Shutdown</a></label></td>
+    </tr>
+  </table>
+</form>
+</body>
+{% endblock %}

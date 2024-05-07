@@ -1,0 +1,52 @@
+{% extends 'Admin/adminindex.html' %}
+{% block body %}
+
+<body>
+<form id="form1" name="form1" method="post" action="mnglabsubj_search#about">
+  <table width="200" border="1" class="table table-dark table-striped">
+    <tr align="center">
+        <td colspan="5"><h1><b>LAB-SUBJECTS</b></h1>
+        </td>
+    </tr>
+    <tr>
+      <td colspan="5">Course
+        <label>
+        <select name="select" class="btn btn-light" style="width:210px;">
+        <option></option>
+            {% for i in val1  %}
+            <option value="{{ i.id }}" {% if i.id == c %} selected {% endif %}>{{ i.course }}</option>
+            {% endfor  %}
+
+
+        </select>
+<button name="Submit" value="submit" class="fa fa-search btn btn-secondary " style="font-size:20px;width:140px"> Search</button>
+        </label>
+      </td>
+    </tr>
+    <tr>
+      <td>Sl.no</td>
+      <td>Subject </td>
+      <td>Syllabus</td>
+      <td>Course</td>
+      <td>&nbsp;</td>
+    </tr>{% for i in val %}
+    <tr>
+      <td>{{ forloop.counter }}</td>
+      <td>{{ i.subject }}</td>
+      <td>{{ i.syllabus }}</td>
+      <td>{{ i.COURSE.course }}</td>
+      <td>
+          <p align="center"><a href="/edit_labsub/{{i.id  }}#about" class="btn btn-secondary"><i style="font-size:24px" class="fa">&#xf044;</i></a></p>
+          <p align="center"><a href="/dlt_labsub/{{ i.id }}#about" class="btn btn-danger" onclick=" return confirm('Are you sure want to delete?')"><i style="font-size:24px" class="fa">&#xf014;</i></a></p>
+
+
+      </td>
+    </tr>{% endfor %}
+    <tr>
+        <td colspan="5"><div align="center"><a href="addlabsubj#about" class="btn btn-primary"><i style="font-size:24px" class="fa">&#xf067;</i></a></div></td>
+    </tr>
+  </table>
+</form>
+</body>
+{% endblock %}
+

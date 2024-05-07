@@ -1,0 +1,36 @@
+{% extends 'Admin/adminindex.html' %}
+{% block body %}
+
+<body>
+<form id="form1" name="form1" method="post" action="">
+  <table width="200" border="1" class="table table-dark table-striped">
+    <tr align="center">
+        <td colspan="9"><h1><b> TIME SCHEDULE FOR STAFFS </b></h1>
+        </td>
+   </tr>
+    <tr>
+      <td>Sl.no</td>
+      <td>Day </td>
+      <td>Hour</td>
+{#      <td>Day</td>#}
+{#      <td>Hour</td>#}
+      <td>&nbsp;</td>
+    </tr>{% for i in val %}
+    <tr>
+      <td>{{ forloop.counter }}</td>
+      <td>{{ i.day }}</td>
+      <td>{{ i.period }}</td>
+{#      <td></td>#}
+{#      <td></td>#}
+      <td>
+      <p align="center"><a href="/dlt_time_schedule/{{ i.id }}#about" class="btn btn-danger" onclick=" return confirm('Are you sure want to delete?')"><i style="font-size:24px" class="fa">&#xf014;</i></a></p></td>
+    </tr>{% endfor %}
+    
+    <tr>
+      <td colspan="6"><div align="center"><a href="/add_time_schedule_staff#about" class="btn btn-primary"><i style="font-size:24px" class="fa">&#xf067;</i></a></div></td>
+    </tr>
+  </table>
+</form>
+</body>
+{% endblock %}
+

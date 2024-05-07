@@ -1,0 +1,44 @@
+{% extends 'Lab-assistant/labindex.html' %}
+{% block body %}
+
+<body>
+<form id="form1" name="form1" method="post" action="view_exam_search#about">
+  <table width="408" border="1" class="table table-dark table-striped">
+      <tr align="center">
+        <td colspan="9"><h1><b>EXAMS</b></h1>
+        </td>
+    </tr>
+    <tr>
+      <td colspan="9">Date
+        <label>
+        <input type="date" name="t1" required value="{{ dt }}" class="btn btn-light" style="width:140px;">
+        <button name="Submit" value="submit" class="fa fa-search btn btn-secondary " style="font-size:20px;width:140px"> Search</button>
+      </label></td>
+    </tr>
+    <tr>
+      <td width="31">Sl.no</td>
+      <td width="59">Exam Name </td>
+      <td width="46">Subject</td>
+      <td width="41">Details</td>
+      <td width="55">Exam Date </td>
+      <td width="30">Time</td>
+        <td width="30">Duration(in hrs)</td>
+
+
+      <td width="55">Allotted staff </td>
+    </tr>{% for i in val %}
+    <tr>
+       <td>{{ forloop.counter }}</td>
+      <td>{{ i.exam_name }}</td>
+      <td>{{ i.SUBJECT.subject }}</td>
+      <td>{{ i.details }}</td>
+      <td>{{ i.date }}</td>
+      <td>{{ i.time }}</td>
+          <td>{{ i.duration }}</td>
+
+      <td>{{ i.STAFF.name }}</td>
+    </tr>{% endfor %}
+  </table>
+</form>
+</body>
+{% endblock %}

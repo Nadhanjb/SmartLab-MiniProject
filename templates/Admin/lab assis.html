@@ -1,0 +1,56 @@
+{% extends 'Admin/adminindex.html' %}
+{% block body %}
+
+<body>
+<form id="form1" name="form1" method="post" action="mnglabassi_search#about">
+  <table width="200" border="1" class="table table-dark table-striped">
+    <tr align="center">
+        <td colspan="9"><h1><b>LAB-ASSISTANTS</b></h1>
+        </td>
+    </tr>
+    <tr>
+      <td colspan="9">Name
+       <input type="text" name="textfield"  value="{{ c }}" class="btn btn-light" style="width:210px;" required/>
+
+        <button name="Submit" value="submit" class="fa fa-search btn btn-secondary " style="font-size:20px;width:140px"> Search</button>
+     </td>
+    </tr>
+    <tr>
+      <td>Sl.no</td>
+      <td>Name</td>
+      <td>Address</td>
+      <td>Gender</td>
+      <td>DOB</td>
+      <td>Phone</td>
+      <td>Email</td>
+      <td>Qualification</td>
+      <td>&nbsp;</td>
+    </tr>{% for i in val %}
+    <tr>
+      <td>{{ forloop.counter }}</td>
+      <td align="center"><img src="../media/{{ i.photo }} " width="100dp" height="100dp">
+          <br>
+      <b>{{ i.name }}</b></td>
+              <td>{{ i.place }}<br> {{ i.pin }}<br> {{ i.post }}</td>
+
+      <td>{{ i.gender }}</td>
+      <td>{{ i.dob }}</td>
+      <td>{{ i.phone }}</td>
+      <td>{{ i.email }}</td>
+      <td> <ul>
+          {% for j in i.qualification %}
+              <li>{{ j }}</li>
+              {% endfor %}
+              </ul></td>
+      <td><p align="center"><a href="/edit_lab_assi/{{ i.id }}#about" class="btn btn-secondary"><i style="font-size:24px" class="fa">&#xf044;</i></a></p>
+      <p align="center"><a href="/dlt_labassi/{{ i.LOGIN.id }}#about" class="btn btn-danger" onclick=" return confirm('Are you sure want to delete?')"><i style="font-size:24px" class="fa">&#xf014;</i></a></p></td>
+    </tr>{% endfor %}
+    
+    <tr>
+      <td colspan="9"><div align="center"><a href="addlabassist#about" class="btn btn-primary"><i style="font-size:24px" class="fa">&#xf067;</i></a></div></td>
+    </tr>
+  </table>
+</form>
+</body>
+{% endblock %}
+

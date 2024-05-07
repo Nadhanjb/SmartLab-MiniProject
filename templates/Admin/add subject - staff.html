@@ -1,0 +1,107 @@
+{% extends 'Admin/adminindex.html' %}
+{% block body %}
+
+<body>
+
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script>
+
+$(document).ready(function(){
+
+    $("select#s").change(function() {
+
+        if ($(this).val() != 'default') {
+
+            var br = $('#s option:selected').val();
+            $.ajax({
+                type: 'POST',
+                url: "/index",
+                data: { staff: br },
+
+                success: function(response) {
+
+                var op='<select name="select2" class="btn btn-light" style="width:210px;" id="s1">';
+
+
+               for(var i=0;i<response.length;i++)
+                    {
+
+                        op+='<option value="'+response[i].id+'">'+response[i].sub+'</option>';
+
+                    }
+op+='</select>';
+
+document.getElementById("p").innerHTML=op;
+                }
+            });
+        }
+        else {
+            $('select#model').html('').prop('disabled',true);
+        }
+    });
+});
+</script>
+<form id="form1" name="form1" method="post" action="addsub_staff_action">
+  <table width="200" border="1" class="table table-dark table-striped">
+  <tr align="center">
+        <td colspan="5"><h1><b>ADD SUBJECT TO STAFF</b></h1>
+        </td>
+    </tr>
+    <tr>
+      <td>Staff</td>
+      <td><label>
+        <select name="select" class="btn btn-light" style="width:210px;" id="s">
+        <option value="0">Select</option>
+             {% for i in val1 %}
+            <option value="{{ i.id }}">{{ i.name }}</option>
+            {% endfor %}
+        </select>
+      </label></td>
+    </tr>
+    <tr>
+      <td>Lab subject </td>
+      <td><p id="p">
+        <select name="select2" class="btn btn-light" style="width:210px;" id="s1">
+
+        </select>
+      </p></td>
+    </tr>
+{#    <tr>#}
+{#      <td>Day</td>#}
+{#      <td><label>#}
+{#        <select name="select3">#}
+{#            <option>Monday</option>#}
+{#            <option>Tuesday</option>#}
+{#            <option>Wednesday</option>#}
+{#            <option>Thursday</option>#}
+{#            <option>Friday</option>#}
+{##}
+{##}
+{#        </select>#}
+{#      </label></td>#}
+{#    </tr>#}
+{#    <tr>#}
+{#      <td>Hour</td>#}
+{#      <td><label>#}
+{#        <select name="select4">#}
+{#            <option>1st Period</option>#}
+{#            <option>2nd Period</option>#}
+{#            <option>3rd Period</option>#}
+{#            <option>4th Period</option>#}
+{#            <option>5th Period</option>#}
+{#            <option>6th Period</option>#}
+{#        </select>#}
+{#      </label></td>#}
+{#    </tr>#}
+    <tr>
+      <td colspan="2">
+        <div align="center">
+          <input type="submit" name="Submit" value="Add" class="btn btn-secondary" />
+          </div>
+      </td>
+    </tr>
+  </table>
+</form>
+</body>
+{% endblock %}
+

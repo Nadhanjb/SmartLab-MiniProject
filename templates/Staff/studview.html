@@ -1,0 +1,98 @@
+{% extends 'Staff/staffindex.html' %}
+{% block body %}
+<style>
+table{
+    display:block;
+    overflow:auto;
+    white-space:nowrap;
+}
+</style>
+
+<body>
+<form id="form1" name="form1" method="post" action="viewstud_search#about">
+  <table width="200" border="1" class="table table-dark table-striped">
+    <tr align="center">
+        <td colspan="11"><h1><b>STUDENTS</b></h1>
+        </td>
+    </tr>
+   <tr>
+     <td >Department<br>
+        <label>
+        <select name="select" class="btn btn-light" style="width:200px;">
+        <option></option>
+            {% for i in val  %}
+            <option value="{{ i.id }}">{{ i.dept_name }}</option>
+            {% endfor  %}
+        </select>
+      </label></td>
+    <td >Course<br>
+        <label>
+        <select name="select2" class="btn btn-light" style="width:140px;">
+            <option></option>
+
+            {% for i in val1  %}
+            <option value="{{ i.id }}">{{ i.course }}</option>
+            {% endfor  %}
+        </select>
+
+      </label></td>
+
+      <td colspan="11">
+          Semester<br>
+        <label>
+         <select name="select3" class="btn btn-light" style="width:140px;">
+             <option></option>
+
+            <option >1</option>
+            <option >2</option>
+            <option >3</option>
+            <option >4</option>
+            <option >5</option>
+            <option >6</option>
+        </select>
+            <button name="Submit" value="submit" class="fa fa-search btn btn-secondary " style="font-size:20px;width:140px"> Search</button>
+
+      </label>
+      </td>
+    </tr>
+    <tr>
+      <td>Sl.no</td>
+      <td>Name</td>
+      <td>Gender</td>
+      <td>DOB</td>
+      <td>Department</td>
+      <td>Course</td>
+      <td>Semester</td>
+      <td>Address</td>
+      <td>Email</td>
+      <td>Phone</td>
+        <td>Qualification</td>
+    </tr>
+      {% for i in val2 %}
+
+    <tr>
+      <td>{{ forloop.counter }}</td>
+      <td align="center"><img src="../media/{{ i.photo }} " width="100dp" height="100dp">
+          <br>
+      <b>{{ i.fname }} {{ i.lname }}</b>
+          </td>
+      <td>{{ i.gender }}</td>
+      <td>{{ i.dob }}</td>
+      <td>{{ i.COURSE.DEPARTMENT.dept_name }}</td>
+      <td>{{ i.COURSE.course }}</td>
+        <td>{{ i.semester }}</td>
+      <td>{{ i.place }}
+      <br> {{ i.pin }}<br> {{ i.post }}</td>
+      <td>{{ i.email }}</td>
+      <td>{{ i.phone }}</td>
+      <td><ul>
+          {% for j in i.qualification %}
+              <li>{{ j }}</li>
+              {% endfor %}
+              </ul></td>
+    </tr>{% endfor %}
+  </table>
+</form>
+</body>
+{% endblock %}
+

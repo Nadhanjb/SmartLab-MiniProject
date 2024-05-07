@@ -1,0 +1,33 @@
+{% extends 'Admin/adminindex.html' %}
+{% block body %}
+
+<body>
+<form id="form1" name="form1" method="post" action="">
+  <table width="200" border="1" class="table table-dark table-striped">
+
+<tr align="center">
+        <td colspan="5"><h1><b>DEPARTMENTS</b></h1>
+        </td>
+    </tr>
+
+    <tr>
+      <td width="33">sl.no</td>
+      <td width="83">Department</td>
+      <td width="52">Details</td>
+      <td width="4">&nbsp;</td>
+    </tr>{% for i in val %}
+    <tr>
+      <td>{{ forloop.counter }}</td>
+      <td>{{ i.dept_name }}</td>
+      <td>{{ i.details }}</td>
+      <td><p align="center"><a href="{% url 'edit_dept' dept_id=i.id %}#about" class="btn btn-secondary"><i style="font-size:24px" class="fa">&#xf044;</i></a></p>
+      <p align="center"><a href="/dlt_depart/{{ i.id }}#about" class="btn btn-danger" onclick=" return confirm('Are you sure want to delete?')"><i style="font-size:24px" class="fa">&#xf014;</i></a></p></td>
+    </tr>{% endfor %}
+    
+    <tr>
+      <td colspan="4"><div align="center"><a href="adddept#about" class="btn btn-primary"><i style="font-size:24px" class="fa">&#xf067;</i></a></div></td>
+    </tr>
+  </table>
+</form>
+</body>
+{% endblock %}

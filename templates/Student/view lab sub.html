@@ -1,0 +1,40 @@
+{% extends 'Student/studindex.html' %}
+{% block body %}
+
+
+<body>
+<form name="form1" method="post" action="viewlabsub_search#about">
+  <table width="200" border="1" class="table table-dark table-striped">
+       <tr align="center">
+        <td colspan="9"><h1><b>LAB SUBJECTS</b></h1>
+        </td>
+    </tr>
+    <tr>
+      <td colspan="5">Lab Subject
+        <label>
+        <select name="select" class="btn btn-light" style="width:140px;">
+            {% for i in val %}
+            <option value="{{ i.id }}" {% if i.id == ss %} selected {% endif %}>{{ i.subject }}</option>
+            {% endfor %}
+        </select>
+        <button name="Submit" value="submit" class="fa fa-search btn btn-secondary " style="font-size:20px;width:140px"> Search</button>
+      </label></td>
+    </tr>
+    <tr>
+      <td>Sl.no</td>
+      <td>Lab subject </td>
+{#      <td>Day </td>#}
+{#      <td>Period</td>#}
+      <td>Syllabus</td>
+    </tr>{% for i in val2 %}
+    <tr>
+      <td>{{ forloop.counter }}</td>
+      <td>{{ i.subject }}</td>
+{#      <td>{{ i.day }}</td>#}
+{#      <td>{{ i.period }}</td>#}
+      <td>{{ i.syllabus }}</td>
+    </tr>{% endfor %}
+  </table>
+</form>
+</body>
+{% endblock %}

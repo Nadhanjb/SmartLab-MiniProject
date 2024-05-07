@@ -1,0 +1,104 @@
+{% extends 'Admin/adminindex.html' %}
+{% block body %}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+
+table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+}
+    </style>
+<body>
+<form id="form1" name="form1" method="post" action="stud_search#about">
+  <table  height="" border="1" class="table table-dark table-striped">
+  <tr align="center">
+        <td colspan="12"><h1><b>STUDENTS</b></h1>
+        </td>
+    </tr>
+    <tr>
+        <td >Department<br>
+        <label>
+        <select name="select" class="btn btn-light" style="width:210px;">
+        <option></option>
+            {% for i in val  %}
+            <option value="{{ i.id }}" {% if i.id == dp %}selected{% endif %}>{{ i.dept_name }}</option>
+            {% endfor  %}
+        </select>
+      </label></td>
+    <td >Course<br>
+        <label>
+        <select name="select2" class="btn btn-light" style="width:210px;">
+                <option></option>
+
+            {% for i in val1  %}
+            <option value="{{ i.id }}" {% if i.id == crs %}selected{% endif %}>{{ i.course }}</option>
+            {% endfor  %}
+        </select>
+
+      </label></td>
+
+      <td colspan="11">
+          Semester<br>
+        <label>
+         <select name="select3"  class="btn btn-light" style="width:210px;">
+                     <option></option>
+
+            <option  {% if sem == "1" %}selected{% endif %}>1</option>
+            <option {% if sem == "2" %}selected{% endif %}>2</option>
+            <option {% if sem == "3" %}selected{% endif %}>3</option>
+            <option {% if sem == "4" %}selected{% endif %}>4</option>
+            <option {% if sem == "5" %}selected{% endif %}>5</option>
+            <option {% if sem == "6" %}selected{% endif %}>6</option>
+            <option {% if sem == "7" %}selected{% endif %}>7</option>
+            <option {% if sem == "8" %}selected{% endif %}>8</option>
+        </select>
+            <button name="Submit" value="submit" class="fa fa-search btn btn-secondary " style="font-size:20px;width:140px"> Search</button>
+      </label>
+      </td>
+
+    </tr>
+    <tr>
+      <td >Sl.no</td>
+      <td>Name</td>
+      <td>Address</td>
+      <td>Gender</td>
+      <td>DOB</td>
+      <td>Department</td>
+      <td>Course</td>
+      <td>Semester</td>
+      <td>Email</td>
+      <td>Phone</td>
+      <td>Qualification</td>
+      <td>&nbsp;</td>
+    </tr>{% for i in val2 %}
+      <tr>
+      <td>{{ forloop.counter }}</td>
+      <td align="center"><img src="../media/{{ i.photo }} " width="100dp" height="100dp">
+          <br>
+      <b>{{ i.fname }} {{ i.lname }}</b></td>
+      <td>{{ i.place }}
+      <br> {{ i.pin }}<br> {{ i.post }}</td>
+      <td>{{ i.gender }}</td>
+      <td>{{ i.dob }}</td>
+      <td>{{ i.COURSE.DEPARTMENT.dept_name }}</td>
+      <td>{{ i.COURSE.course }}</td>
+      <td>{{ i.semester }}</td>
+      <td>{{ i.email }}</td>
+      <td>{{ i.phone }}</td>
+      <td><ul>
+          {% for j in i.qualification %}
+              <li>{{ j }}</li>
+              {% endfor %}
+              </ul></td>
+      <td><p><a href="edit_student/{{ i.id }}#about" class="btn btn-secondary"><i style="font-size:24px" class="fa">&#xf044;</i></a></p>
+      <p><a href="dlt_student/{{ i.LOGIN.id }}#about" class="btn btn-danger" onclick=" return confirm('Are you sure want to delete?')"><i style="font-size:24px" class="fa">&#xf014;</i></a></p></td>
+    </tr>{% endfor %}
+    <tr>
+      <td colspan="12"><div align="center"><a href="addstud#about" class="btn btn-primary" ><i style="font-size:24px" class="fa">&#xf067;</i></a></div></td>
+    </tr>
+  </table>
+</form>
+</body>
+{% endblock %}
+

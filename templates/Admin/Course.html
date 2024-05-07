@@ -1,0 +1,68 @@
+{% extends 'Admin/adminindex.html' %}
+{% block body %}
+
+
+<body>
+<form id="form1" name="form1" method="post" action="mngcourse_search#about">
+  <table width="200" border="1" class="table table-dark table-striped">
+  <tr align="center">
+        <td colspan="6"><h1><b>COURSES</b></h1>
+        </td>
+    </tr>
+    <tr>
+      <td >Department<br>
+        <label>
+        <select name="select" class="btn btn-light" style="width:210px;">
+        <option></option>
+            {% for i in val1  %}
+            <option value="{{ i.id }}" {% if i.id == dep %} selected {% endif %}>{{ i.dept_name }}</option>
+            {% endfor  %}
+        </select>
+
+      </label></td>
+
+     <td >Course<br>
+        <label>
+        <select name="select1" class="btn btn-light" style="width:210px;">
+        <option></option>
+            {% for i in val  %}
+            <option value="{{ i.id }}" {% if i.id == cou %} selected {% endif %}>{{ i.course }}</option>
+            {% endfor  %}
+        </select></label></td>
+        <td colspan="4"><br>
+<button name="Submit" value="submit" class="fa fa-search btn btn-secondary " style="font-size:20px;width:140px"> Search</button>    </td>
+    </tr>
+    <tr>
+      <td>Sl.no</td>
+      <td>Course</td>
+      <td>Department</td>
+              <td>Total sem</td>
+
+      <td>Details</td>
+      <td>&nbsp;</td>
+    </tr>{% for i in val2 %}
+
+    <tr>
+      <td>{{ forloop.counter }}</td>
+      <td>&nbsp;{{ i.course }}</td>
+      <td>{{i.DEPARTMENT.dept_name}}</td>
+              <td>{{ i.sem }}</td>
+
+      <td>{{ i.details }}</td>
+      <td>
+          <p align="center"><a href="{% url 'edit_course' course_id=i.id %}#about" class="btn btn-secondary"><i style="font-size:24px" class="fa">&#xf044;</i></a></p>
+      <p align="center"><a href="/dlt_course/{{ i.id }}#about" class="btn btn-danger" onclick=" return confirm('Are you sure want to delete?')"><i style="font-size:24px" class="fa">&#xf014;</i></a></p>
+                    <a href="{% url 'upgrade' id=i.id %}#about" class="btn btn-secondary">upgrade</a></p>
+
+      </td>
+    </tr>{% endfor %}
+    
+    <tr>
+      <td colspan="6"><div align="center"><a href="addcourse#about" class="btn btn-primary"><i style="font-size:24px" class="fa">&#xf067;</i></a></div></td>
+    </tr>
+  </table>
+</form>
+
+</body>
+{% endblock %}
+

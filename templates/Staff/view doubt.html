@@ -1,0 +1,49 @@
+{% extends 'Staff/staffindex.html' %}
+{% block body %}
+{#<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">#}
+{#<html xmlns="http://www.w3.org/1999/xhtml">#}
+{#<head>#}
+{#<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />#}
+{#<title>Untitled Document</title>#}
+{#</head>#}
+
+<body>
+<form id="form1" name="form1" method="post" action="viewdoubt_s#about">
+  <table width="200" border="1" class="table table-dark table-striped">
+       <tr align="center">
+        <td colspan="9"><h1><b>PROGRAM RELATED DOUBT AND VERIFICATION</b></h1>
+        </td>
+    </tr>
+    <tr>
+      <td colspan="6">Date<input type="date" name="dt" value="{{ val1 }}" class="btn btn-light" style="width:140px;">
+          <button name="Submit" value="submit" class="fa fa-search btn btn-secondary " style="font-size:20px;width:140px"> Search</button>
+
+      </td>
+    </tr>
+    <tr>
+      <td>Sl.no</td>
+      <td>Student Name </td>
+      <td>Doubt</td>
+      <td>Proof(Image)</td>
+      <td>Date</td>
+      <td>&nbsp;</td>
+    </tr>{% for i in val %}
+    <tr>
+      <td>{{ forloop.counter  }}</td>
+      <td><img src="../media/{{ i.STUDENT.photo }} " width="100dp" height="100dp">
+          <br>
+          <b>{{ i.STUDENT.fname }} {{ i.STUDENT.lname }}</b></td>
+      <td>{{ i.doubt }}</td>
+        <td><a href="../media/{{ i.image }}"/> <img src="../media/{{ i.image }} " width="100dp" height="100dp"></a> </td>
+      <td>{{ i.date }}</td>
+        {% if i.reply == 'pending' %}
+      <td><a href="sendreply/{{ i.id }}"  class="btn btn-secondary"> Reply</a></td>
+        {% else %}
+        <td>{{ i.reply }}</td>
+        {% endif %}
+    </tr>{% endfor %}
+  </table>
+</form>
+</body>
+{#</html>#}
+{% endblock %}

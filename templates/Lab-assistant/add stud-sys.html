@@ -1,0 +1,42 @@
+{% extends 'Lab-assistant/labindex.html' %}
+{% block body %}
+
+<body>
+<form id="form1" name="form1" method="post" action="/add_system_stud_action">
+  <table width="200" border="1" class="table table-dark table-striped">
+      <tr align="center">
+        <td colspan="9"><h1><b> ADD STUDENTS TO SYSTEMS</b></h1>
+        </td>
+    </tr>
+{#     <tr>#}
+{#      <td>Student name </td>#}
+{#      <td><label>#}
+{#        <select name="select" class="btn btn-light" style="width:210px;">#}
+{#            {% for i in val %}#}
+{#            <option value="{{ i.id }}">{{ i.fname }} {{ i.lname }}</option>#}
+{#            {% endfor %}#}
+{#        </select>#}
+{#      </label></td>#}
+{#    </tr>#}
+    <tr>
+      <td>System no </td>
+      <td><label>
+        <select name="select2" class="btn btn-light" style="width:210px;">
+        <option></option>
+            {% for i in val1 %}
+            <option value="{{ i.id }}">{{ i.system_id }} </option>
+            {% endfor %}
+        </select>
+      </label></td>
+    </tr>
+    <tr>
+      <td colspan="4"><label>
+          <div align="center">
+              &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp;
+              <input type="submit" name="Submit" value="Add" class="btn btn-secondary" /></div>
+      </label></td>
+    </tr>
+  </table>
+</form>
+</body>
+{% endblock %}

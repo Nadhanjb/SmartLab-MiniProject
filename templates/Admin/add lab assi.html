@@ -1,0 +1,97 @@
+{% extends 'Admin/adminindex.html' %}
+{% block body %}
+
+<body>
+<form action="add_labassi_action" method="post" enctype="multipart/form-data" name="form1" id="form1">
+  <table width="200" border="1" class="table table-dark table-striped">
+      <tr align="center">
+        <td colspan="5"><h1><b>ADD LAB-ASSSISTANT</b></h1>
+        </td>
+    </tr>
+    <tr>
+      <td>Name</td>
+      <td><label>
+        <input type="text" name="textfield" required class="btn btn-light" style="width:210px;" pattern="[A-Z a-z.]{3,25}"/>
+      </label></td>
+    </tr>
+    <tr>
+      <td>Gender</td>
+      <td><label>
+        <input name="radiobutton" type="radio" value="Male"  />
+        Male
+          </label>
+          <label>
+        <input name="radiobutton" type="radio" value="Female" />
+        Female
+          </label>
+          <label>
+        <input name="radiobutton" type="radio" value="Others" />
+      Others</label></td>
+    </tr>
+    <tr>
+      <td>DOB</td>
+      <td><label>
+        <input type="date" name="textfield2" min="1980-01-01" max="2013-12-31" class="btn btn-light" style="width:210px;" required/>
+      </label></td>
+    </tr>
+    <tr>
+      <td>Phone</td>
+      <td><label>
+        <input type="text" name="textfield3" required class="btn btn-light" style="width:210px;" pattern="[6789][0-9]{9}" title="Phone number must contain 10 digits [0-9]" placeholder="Enter your phone number"/>
+      </label></td>
+    </tr>
+    <tr>
+      <td>Email</td>
+      <td><label>
+        <input type="text" name="textfield4" class="btn btn-light" style="width:210px;" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}" title="Email only contain letters(a-z),numbers(0-9) and periods(.) are allowed " placeholder="Enter your email"/>
+      </label></td>
+    </tr>
+    <tr>
+      <td>Place</td>
+      <td><label>
+        <input type="text" name="textfield5" pattern="[A-Z a-z.]{3,25}" class="btn btn-light" style="width:210px;" required placeholder="Enter place"/>
+      </label></td>
+    </tr>
+    <tr>
+      <td>Pincode</td>
+      <td><label>
+        <input type="text" name="textfield6" required pattern="[0-9]{6}" class="btn btn-light" style="width:210px;" title="enter valid data" placeholder="Enter pin"/>
+      </label></td>
+    </tr>
+    <tr>
+      <td>Post</td>
+      <td><label>
+        <input type="text" name="textfield7" pattern="[A-Z a-z.]{3,25}" class="btn btn-light" style="width:210px;" required title="enter valid data" placeholder="Enter post"/>
+      </label></td>
+    </tr>
+    <tr>
+      <td>Qualification</td>
+      <td><label>
+        <textarea name="textarea" class="btn btn-light" style="width:600px;height: 200px;" required  placeholder="Enter pin"></textarea>
+      </label></td>
+    </tr>
+    <tr>
+      <td>Photo</td>
+      <td><label>
+        <input type="file" name="file" required class="btn btn-light" style="width:210px;" accept="image/jpeg,image/png"/>
+      </label></td>
+    </tr>
+    <tr>
+      <td>Username</td>
+      <td><label>
+        <input type="text" name="textfield8" class="btn btn-light" style="width:210px;" required/>
+      </label></td>
+    </tr>
+    <tr>
+      <td height="24">Password</td>
+      <td><label>
+        <input type="text" name="textfield9" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title=" Password must contains  number[0-9],Uppercase[A-Z],Lowercase[a-zl letters and at least 8 or more characters" class="btn btn-light" style="width:210px;" required/>
+      </label></td>
+    </tr>
+    <tr>
+      <td colspan="2"><div align="center"><input type="submit" name="Submit" value="Add" class="btn btn-secondary"/></div></td>
+    </tr>
+  </table>
+</form>
+</body>
+{% endblock %}

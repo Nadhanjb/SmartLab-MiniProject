@@ -1,0 +1,38 @@
+{% extends 'Student/studindex.html' %}
+{% block body %}
+
+<body>
+<form id="form1" name="form1" method="post" action="add_comp_action">
+  <table width="200" border="1" class="table table-dark table-striped">
+       <tr align="center">
+        <td colspan="9"><h1><b>COMPLAINT</b></h1>
+        </td>
+    </tr>
+
+      <tr>
+      <td>Staff</td>
+      <td><label>
+        <select name="select" class="btn btn-light" style="width:140px;">
+            {% for i in val  %}
+                <option value="{{ i.id }}" >{{ i.name }}</option>
+
+            {% endfor %}
+        </select>
+      </label></td>
+    </tr>
+    <tr>
+      <td>Complaint</td>
+      <td><label>
+        <textarea name="textarea" class="btn btn-light" style="width:600px;height: 200px;"></textarea>
+      </label></td>
+    </tr>
+    <tr>
+      <td colspan="2">
+          <div align="center"> <input type="submit" name="Submit" value="Add" class="btn btn-secondary" /></div>
+
+      </td>
+    </tr>
+  </table>
+</form>
+</body>
+{% endblock %}

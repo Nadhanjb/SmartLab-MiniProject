@@ -1,0 +1,67 @@
+{% extends 'Admin/adminindex.html' %}
+{% block body %}
+
+<body>
+<form id="form1" name="form1" method="post" action="/mng_staff_sch#about">
+  <table width="200" border="1" class="table table-dark table-striped">
+    <tr align="center">
+        <td colspan="11"><h1><b>STAFFS</b></h1>
+        </td>
+    </tr>
+    <tr>
+      <td colspan="13">Course
+        <label>
+        <select name="select" class="btn btn-light" style="width:210px;">
+        <option></option>
+            {% for i in val1  %}
+            <option value="{{ i.id }}" {% if s == i.id %} selected {% endif %}>{{ i.course }}</option>
+            {% endfor  %}
+
+        </select>
+       <button name="Submit" value="submit" class="fa fa-search btn btn-secondary " style="font-size:20px;width:140px"> Search</button>
+      </label></td>
+    </tr>
+    <tr>
+      <td>Sl.no</td>
+      <td>Name</td>
+      <td>Gender</td>
+      <td>DOB</td>
+      <td>Address</td>
+      <td>Phone</td>
+      <td>Email</td>
+      <td>Qualification</td>
+      <td>Programming lang </td>
+      <td>Course</td>
+      <td> </td>
+    </tr>{% for i in val %}
+    <tr>
+      <td>{{ forloop.counter }}</td>
+      <td align="center"><img src="../media/{{ i.photo }} " width="100dp" height="100dp"><br>
+      <b>{{ i.name }}</b></td>
+      <td>{{ i.gender }}</td>
+      <td>{{ i.dob }}</td>
+      <td >{{ i.place }}
+      <br> {{ i.pin }}<br> {{ i.post }}</td>
+      <td>{{ i.phone }}</td>
+      <td>{{ i.email }}</td>
+      <td>
+          <ul>
+          {% for j in i.qualification %}
+              <li>{{ j }}</li>
+              {% endfor %}
+              </ul>
+      </td>
+      <td>{{ i.programming_lang }}</td>
+      <td>{{ i.COURSE.course }}</td>
+      <td><p align="center"><a href="editstaff/{{ i.id }}#about" class="btn btn-secondary"><i style="font-size:24px" class="fa">&#xf044;</i></a></p>
+      <p align="center"><a href="/dlt_staff/{{ i.LOGIN.id }}#about"  class="btn btn-danger" onclick=" return confirm('Are you sure want to delete?')"><i style="font-size:24px" class="fa">&#xf014;</i></a></p></td>
+    </tr>{% endfor %}
+
+    <tr>
+      <td colspan="13"><div align="center"><a href="addstaff#about" class="btn btn-"><i style="font-size:24px" class="fa">&#xf067;</i></a></div></td>
+    </tr>
+  </table>
+</form>
+</body>
+{% endblock %}
+

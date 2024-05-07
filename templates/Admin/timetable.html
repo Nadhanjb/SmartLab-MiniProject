@@ -1,0 +1,20 @@
+{% extends 'Admin/adminindex.html' %}
+{% block body %}
+
+<body>
+
+<table border="2" class="table table-dark table-striped">
+<tr align="center">
+        <td colspan="9"><h1><b> TIME TABLE </b></h1>
+        </td>
+   </tr>
+    {% for i in val %}
+    <tr>
+        {% for j in i %}
+            <td>{{ j }}</td>
+        {% endfor %}
+    </tr>
+    {% endfor %}
+</table>
+</body>
+{% endblock %}

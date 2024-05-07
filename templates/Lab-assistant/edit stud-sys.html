@@ -1,0 +1,52 @@
+{% extends 'Lab-assistant/labindex.html' %}
+{% block body %}
+
+<body>
+<form id="form1" name="form1" method="post" action="{% url 'edit_system_stud_action' %}#about">
+  <table width="200" border="1" class="table table-dark table-striped">
+      <tr align="center">
+        <td colspan="9"><h1><b> EDIT STUDENTS TO SYSTEMS</b></h1>
+        </td>
+    </tr>
+        <tr>
+      <td>Semester</td>
+      <td><label>
+        <select name="select3" class="btn btn-light" style="width:210px;" required>
+            <option {% if val2.semester == '1st sem' %} selected{% endif %}>1st sem</option>
+            <option {% if val2.semester == '2nd sem' %} selected{% endif %}>2nd sem</option>
+            <option {% if val2.semester == '3rd sem' %} selected{% endif %}>3rd sem</option>
+            <option {% if val2.semester == '4th sem' %} selected{% endif %}>4th sem</option>
+            <option {% if val2.semester == '5th sem' %} selected{% endif %}>5th sem</option>
+            <option {% if val2.semester == '6th sem' %} selected{% endif %}>6th sem</option>
+        </select>
+      </label></td>
+    </tr>
+    <tr>
+      <td>Student name </td>
+      <td><label>
+        <select name="select" class="btn btn-light" style="width:210px;">
+            {% for i in val %}
+            <option value="{{ i.id }}" {% if v.STUDENT.id == i.id  %}selected{% endif %}>{{ i.fname }} {{ i.lname }}</option>
+            {% endfor %}
+        </select>
+      </label></td>
+    </tr>
+    <tr>
+      <td>System no </td>
+      <td><label>
+        <select name="select2" class="btn btn-light" style="width:210px;">
+            {% for i in val1 %}
+            <option value="{{ i.id }}" {% if v.SYSTEM.id == i.id  %}selected{% endif %}>{{ i.system_id }} </option>
+            {% endfor %}
+        </select>
+      </label></td>
+    </tr>
+    <tr>
+      <td colspan="2">
+          <div align="center"> <input type="submit" name="Submit" value="Update" class="btn btn-secondary" /></div>
+      </td>
+    </tr>
+  </table>
+</form>
+</body>
+{% endblock %}

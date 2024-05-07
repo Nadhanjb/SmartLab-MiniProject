@@ -1,0 +1,41 @@
+{% extends 'Lab-assistant/labindex.html' %}
+{% block body %}
+<body>
+<form id="form1" name="form1" method="post" action="view_sub_staff_search#about">
+  <table width="200" border="1" class="table table-dark table-striped">
+       <tr align="center">
+        <td colspan="9"><h1><b>STAFF LAB ALLOCATION</b></h1>
+        </td>
+    </tr>
+    <tr>
+      <td colspan="5">Day
+        <label>
+        <select name="select" class="btn btn-light" style="width:140px;">
+          <option {% if day == "Monday" %}selected{% endif %}>Monday</option>
+            <option {% if day == "Tuesday" %}selected{% endif %}>Tuesday</option>
+            <option {% if day == "Wednesday" %}selected{% endif %}>Wednesday</option>
+            <option {% if day == "Thursday" %}selected{% endif %}>Thursday</option>
+            <option {% if day == "Friday" %}selected{% endif %}>Friday</option>
+        </select>
+            <button name="Submit" value="submit" class="fa fa-search btn btn-secondary " style="font-size:20px;width:140px"> Search</button>
+
+      </label></td>
+    </tr>
+    <tr>
+      <td>Sl.no</td>
+      <td>Subject</td>
+      <td>Staff</td>
+      <td>Day</td>
+      <td>Period</td>
+    </tr>{% for i in val %}
+    <tr>
+      <td>{{ forloop.counter }}</td>
+      <td>{{ i.SUBJECT_STAFF.SUBJECT.subject }}</td>
+      <td>{{ i.SUBJECT_STAFF.STAFF.name }}</td>
+      <td>{{i.day }}</td>
+      <td>{{ i.period }}</td>
+    </tr>{% endfor %}
+  </table>
+</form>
+</body>
+{% endblock %}

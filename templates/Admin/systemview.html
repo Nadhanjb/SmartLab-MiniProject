@@ -1,0 +1,38 @@
+{% extends 'Admin/adminindex.html' %}
+{% block body %}
+
+<body>
+<form id="form1" name="form1" method="post" action="/viewsystem_search#about">
+<table width="200" border="1" class="table table-dark table-striped">
+   <tr align="center">
+        <td colspan="9"><h1><b> SYSTEMS </b></h1>
+        </td>
+   </tr>
+  <tr>
+    <td colspan="5">Date
+        <input type="date" name="dt" value="{{ val1 }}"  class="btn btn-light" style="width:140px;"/>
+        <button name="Submit" value="submit" class="fa fa-search btn btn-secondary " style="font-size:20px;width:140px"> Search</button>
+
+      </label>
+      
+        </td>
+  </tr>
+  <tr>
+    <td>Sl.no</td>
+    <td>System_id</td>
+    <td>Details</td>
+    <td>Date</td>
+  </tr>{% for i in val %}
+  <tr>
+    <td>{{ forloop.counter }}</td>
+    <td>{{ i.system_id }}</td>
+    <td>Processor: {{  i.processor }}<br>RAM: {{  i.RAM }}<br>HDD:{{  i.HDD }}<br>SSD: {{  i.SSD }}</td>
+    <td>&nbsp;{{ i.date }}</td>
+  </tr>{% endfor %}
+</table>
+    </form>
+
+</body>
+
+{% endblock %}
+

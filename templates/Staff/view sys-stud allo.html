@@ -1,0 +1,41 @@
+{% extends 'Staff/staffindex.html' %}
+{% block body %}
+{#<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">#}
+{#<html xmlns="http://www.w3.org/1999/xhtml">#}
+{#<head>#}
+{#<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />#}
+{#<title>Untitled Document</title>#}
+{#</head>#}
+
+<body>
+<form id="form1" name="form1" method="post" action="/view_syst_stud_allocation_search#about">
+  <table width="200" border="1" class="table table-dark table-striped">
+       <tr align="center">
+        <td colspan="9"><h1><b>SYSTEM-STUDENT ALLOCATION</b></h1>
+        </td>
+    </tr>
+    <tr>
+      <td colspan="4">Student name
+        <label>
+            <input type="text" name="textfield" class="btn btn-light" style="width:140px;" value="{{ c }}" required>
+                <button name="Submit" value="submit" class="fa fa-search btn btn-secondary " style="font-size:20px;width:140px"> Search</button>
+
+      </label></td>
+    </tr>
+    <tr>
+      <td>Sl.no</td>
+      <td>Student name </td>
+      <td>System no </td>
+      <td>Details </td>
+    </tr>{% for i in val %}
+    <tr>
+      <td>{{ forloop.counter }}</td>
+      <td>{{ i.STUDENT.fname }} {{ i.STUDENT.lname }}</td>
+      <td>{{ i.SYSTEM.system_id }}</td>
+      <td>Processor: {{  i.SYSTEM.processor }}<br>RAM: {{  i.SYSTEM.RAM }}<br>HDD:{{  i.SYSTEM.HDD }}<br>SSD: {{  i.SYSTEM.SSD }}</td>
+    </tr>{% endfor %}
+  </table>
+</form>
+</body>
+{#</html>#}
+{% endblock %}

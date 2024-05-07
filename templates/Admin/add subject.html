@@ -1,0 +1,41 @@
+{% extends 'Admin/adminindex.html' %}
+{% block body %}
+
+
+<body>
+<form id="form1" name="form1" method="post" action="/add_labsubj_action">
+  <table width="200" border="1" class="table table-dark table-striped">
+  <tr align="center">
+        <td colspan="5"><h1><b>ADD SUBJECT</b></h1>
+        </td>
+    </tr>
+   <tr>
+      <td>Course</td>
+      <td><label>
+        <select name="select" class="btn btn-light" style="width:210px;">
+            {% for i in val %}
+            <option value="{{ i.id }}">{{ i.course}}</option>
+            {% endfor %}
+        </select>
+      </label></td>
+    </tr>
+    <tr>
+      <td>Subject</td>
+      <td><label>
+        <input type="text" name="textfield" class="btn btn-light" style="width:210px;" required/>
+      </label></td>
+    </tr>
+    <tr>
+      <td>Syllabus</td>
+      <td><label>
+        <textarea name="textarea" required class="btn btn-light" style="width:600px;height: 200px;"></textarea>
+      </label></td>
+    </tr>
+    <tr>
+      <td colspan="2"><div align="center"><input type="submit" name="Submit" value="Add" class="btn btn-secondary"/></div></td>
+    </tr>
+  </table>
+</form>
+</body>
+{% endblock %}
+

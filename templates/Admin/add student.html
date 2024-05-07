@@ -1,0 +1,130 @@
+{% extends 'Admin/Adminindex.html' %}
+{% block body %}
+
+<body>
+<form action="/addstud_action#about" method="post" enctype="multipart/form-data" name="form1" id="form1">
+  <table width="200" border="1" class="table table-dark table-striped">
+  <tr align="center">
+        <td colspan="5"><h1><b>ADD STUDENT</b></h1>
+        </td>
+    </tr>
+    <tr>
+      <td>First Name </td>
+      <td><label>
+        <input type="text" name="textfield" class="btn btn-light" style="width:210px;" required pattern="[A-Z a-z.]{3,25}" title="Enter valid data" placeholder="Enter your First Name"/>
+      </label></td>
+    </tr>
+    <tr>
+      <td>Last Name </td>
+      <td><label>
+        <input type="text" name="textfield2" class="btn btn-light" style="width:210px;" required pattern="[A-Z a-z.]{0,25}" title="Enter valid data" placeholder="Enter your Last Name"/>
+      </label></td>
+    </tr>
+   <tr>
+      <td>Course</td>
+      <td><label>
+        <select name="select2" class="btn btn-light" style="width:210px;">
+        <option></option>
+            {% for i in val1 %}
+            <option value="{{ i.id }}">{{ i.course }}</option>
+            {% endfor %}
+        </select>
+      </label></td>
+    </tr>
+    <tr>
+      <td>Semester</td>
+      <td><label>
+        <select name="select3" class="btn btn-light" style="width:210px;" required>
+            <option value="">select</option>
+            <option >1</option>
+            <option >2</option>
+            <option >3</option>
+            <option >4</option>
+            <option >5</option>
+            <option >6</option>
+            <option >7</option>
+            <option >8</option>
+
+        </select>
+      </label></td>
+    </tr>
+    <tr>
+      <td>Place</td>
+      <td><label>
+        <input type="text" name="textfield3" class="btn btn-light" style="width:210px;" pattern="[A-Z a-z.]{3,25}" required title="Enter valid data" placeholder="Enter your place"/>
+      </label></td>
+    </tr>
+    <tr>
+      <td>Pin</td>
+      <td><label>
+        <input type="text" name="textfield4" class="btn btn-light" style="width:210px;" required pattern="[0-9]{6}" title="Enter valid data" placeholder="Enter your pincode"/>
+      </label></td>
+    </tr>
+    <tr>
+      <td>Post</td>
+      <td><label>
+        <input type="text" name="textfield5" class="btn btn-light" style="width:210px;" pattern="[A-Z a-z.]{3,25}" required title="Enter valid data" placeholder="Enter your post"/>
+      </label></td>
+    </tr>
+      <tr>
+      <td>Qualification</td>
+      <td><label>
+        <input type="textarea" name="textfield12" class="btn btn-light" style="width:600px;height: 200px;" required  placeholder="Enter your Qualification"/>
+      </label></td>
+    </tr>
+    <tr>
+      <td>Gender</td>
+      <td><label>
+        <input name="radiobutton" type="radio" value="male" />
+      Male 
+      <input name="radiobutton" type="radio" value="female" />
+      Female
+      <input name="radiobutton" type="radio" value="others" />
+      Others</label></td>
+    </tr>
+    <tr>
+      <td>Date of Birth </td>
+      <td><label>
+        <input type="date" name="textfield6" class="btn btn-light" style="width:210px;" min="1990-01-01" max="2003-12-31" required/>
+      </label></td>
+    </tr>
+
+    <tr>
+      <td>Email</td>
+      <td><label>
+        <input type="text" name="textfield8" class="btn btn-light" style="width:210px;" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}" title="Email only contain letters(a-z),numbers(0-9) and periods(.) are allowed " placeholder="Enter your email"/>
+      </label></td>
+    </tr>
+    <tr>
+      <td>Phone</td>
+      <td><label>
+        <input type="text" name="textfield9" class="btn btn-light" style="width:210px;" required pattern="[6789][0-9]{9}" title="Phone number must contain 10 digits [0-9]" placeholder="Enter your phone number"/>
+      </label></td>
+    </tr>
+    <tr>
+      <td>Image</td>
+      <td><label>
+        <input type="file" name="file" required class="btn btn-light" style="width:210px;" accept="image/jpeg,image/png" />
+      </label></td>
+    </tr>
+    <tr>
+      <td>Username</td>
+      <td><label>
+        <input type="text" name="textfield10" class="btn btn-light" style="width:210px;" required/>
+      </label></td>
+    </tr>
+    <tr>
+      <td>Password</td>
+      <td><label>
+        <input type="text" name="textfield11" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title=" Password must contains  number[0-9],Uppercase[A-Z],Lowercase[a-zl letters and at least 8 or more characters" class="btn btn-light" style="width:210px;"required/>
+      </label></td>
+    </tr>
+    <tr>
+      <td colspan="2">
+          <div align="center"> <input type="submit" name="Submit" value="Add" class="btn btn-secondary" /></div>
+      </td>
+    </tr>
+  </table>
+</form>
+</body>
+{% endblock %}

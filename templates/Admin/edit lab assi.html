@@ -1,0 +1,87 @@
+{% extends 'Admin/adminindex.html' %}
+{% block body %}
+
+<body>
+<form action="/edit_labassi_action" method="post" enctype="multipart/form-data" name="form1" id="form1">
+  <table width="200" border="1" class="table table-dark table-striped">
+  <tr align="center">
+        <td colspan="11"><h1><b>EDIT LAB-ASSISTANT</b></h1>
+        </td>
+    </tr>
+    <tr>
+      <td>Name</td>
+      <td><label>
+        <input type="text" name="textfield" value="{{ val.name }}" class="btn btn-light" style="width:210px;" required pattern="[A-Z a-z.]{3,25}"/>
+      </label></td>
+    </tr>
+    <tr>
+      <td>Gender</td>
+      <td><label>
+        <input name="radiobutton" type="radio" value="Male" {% if val.gender == "Male" %}checked {% endif %}/>
+        Male
+          </label>
+          <label>
+        <input name="radiobutton" type="radio" value="Female" {% if val.gender == "Female" %}checked {% endif %}/>
+        Female
+          </label>
+          <label>
+        <input name="radiobutton" type="radio" value="Others" {% if val.gender == "Others" %}checked {% endif %}/>
+      Others</label></td>
+    </tr>
+    <tr>
+      <td>DOB</td>
+      <td><label>
+        <input type="date" name="textfield2" class="btn btn-light" style="width:210px;" value="{{ dt }}" min="1980-01-01" max="2013-12-31" required/>
+      </label></td>
+    </tr>
+    <tr>
+      <td>Phone</td>
+      <td><label>
+        <input type="text" name="textfield3" class="btn btn-light" style="width:210px;" value="{{ val.phone }}" required pattern="[6789][0-9]{9}"/>
+      </label></td>
+    </tr>
+    <tr>
+      <td>Email</td>
+      <td><label>
+        <input type="text" name="textfield4" value="{{ val.email }}" class="btn btn-light" style="width:210px;" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}"/>
+      </label></td>
+    </tr>
+    <tr>
+      <td>Place</td>
+      <td><label>
+        <input type="text" name="textfield5" value="{{ val.place }}" class="btn btn-light" style="width:210px;" pattern="[A-Z a-z.]{3,25}" required/>
+      </label></td>
+    </tr>
+    <tr>
+      <td>Pincode</td>
+      <td><label>
+        <input type="text" name="textfield6" value="{{ val.pin }}" class="btn btn-light" style="width:210px;" required pattern="[0-9]{6}"/>
+      </label></td>
+    </tr>
+    <tr>
+      <td>Post</td>
+      <td><label>
+        <input type="text" name="textfield7" value="{{ val.post }}" class="btn btn-light" style="width:210px;" pattern="[A-Z a-z.]{3,25}" required/>
+      </label></td>
+    </tr>
+    <tr>
+      <td>Qualification</td>
+      <td><label>
+        <textarea name="textarea" class="btn btn-light" style="width:600px;height: 200px;" required>{{ val.qualification }}</textarea>
+      </label></td>
+    </tr>
+    <tr>
+      <td>Photo</td>
+      <td><label>
+        <img src="../media/{{ val.photo }} " width="100dp" height="100dp" >{{ val.photo }}
+          <input type="file" name="file" class="btn btn-light" style="width:210px;"  value={{ val.photo }}  title="image/jpeg,image/png"/>
+      </label></td>
+    </tr>
+
+    <tr>
+      <td colspan="2"><div align="center"><input type="submit" name="Submit" value="Save" class="btn btn-secondary" /></div></td>
+    </tr>
+  </table>
+</form>
+</body>
+{% endblock %}

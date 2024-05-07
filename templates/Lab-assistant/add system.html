@@ -1,0 +1,50 @@
+{% extends 'Lab-assistant/labindex.html' %}
+{% block body %}
+
+<body>
+<form id="form1" name="form1" method="post" action="addsystems_action">
+  <table width="200" border="1" class="table table-dark table-striped">
+      <tr align="center">
+        <td colspan="9"><h1><b>ADD SYSTEMS</b></h1>
+        </td>
+    </tr>
+    <tr>
+      <td>System no. </td>
+      <td><label>
+      <input type="text" name="t1" required class="btn btn-light" style="width:210px;">
+      </label></td>
+    </tr>
+    <tr>
+      <td>Processor</td>
+      <td><label>
+        <input type="text" name="t2" required class="btn btn-light" style="width:210px;">
+      </label></td>
+    </tr>
+    <tr>
+      <td>RAM</td>
+      <td><label>
+        <input type="text" name="t3" required class="btn btn-light" style="width:210px;">
+      </label></td>
+    </tr>
+      <tr>
+      <td>HDD</td>
+      <td><label>
+        <input type="text" name="t4" required class="btn btn-light" style="width:210px;">
+      </label></td>
+    </tr>
+      <tr>
+      <td>SSD</td>
+      <td><label>
+        <input type="text" name="t5" required class="btn btn-light" style="width:210px;">
+      </label></td>
+    </tr>
+    <tr>
+      <td colspan="2">
+          <div align="center"> <input type="submit" name="Submit" value="Add" class="btn btn-secondary" /></div>
+      </td>
+    </tr>
+  </table>
+</form>
+</body>
+</html>
+{% endblock %}

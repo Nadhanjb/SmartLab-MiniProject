@@ -1,0 +1,29 @@
+{% extends 'Staff/staffindex.html' %}
+{% block body %}
+<body>
+<form id="form1" name="form1" method="post" action="">
+{#  <table width="200" border="1">#}
+{#    <tr>#}
+{#      <td> <div align="center">systems</div></td>#}
+{#    </tr>#}
+      {% for i in val %}
+{#    <tr>#}
+{#      <td><label>#}
+          <div class="row">
+  <div class="col-sm-6">
+          <a href="check_system/{{ i.SYSTEM.system_id }}"><div class="card" style="width: 18rem;">
+  <img class="card-img-top" src="../media/system.png" height="100px" width="50px">
+  <div class="card-body">
+    <p class="card-text">{{ i.STUDENT.fname }} {{ i.STUDENT.lname }}({{ i.SYSTEM.system_id }})</p>
+  </div>
+          </div>
+          </a>
+  </div>
+</div>
+{#      </label></td>#}
+{#    </tr>#}
+      {% endfor %}
+  </table>
+</form>
+</body>
+{% endblock %}

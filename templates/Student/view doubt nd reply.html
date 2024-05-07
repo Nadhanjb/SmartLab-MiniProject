@@ -1,0 +1,50 @@
+{% extends 'Student/studindex.html' %}
+{% block body %}
+
+
+<body>
+<form id="form1" name="form1" method="post" action="/view_doubt_reply_search#about">
+  <table width="200" border="1" class="table table-dark table-striped">
+       <tr align="center">
+        <td colspan="7"><h1><b>PROGRAM RELATED DOUBTS & CONFIRMATIONS</b></h1>
+        </td>
+    </tr>
+    <tr>
+      <td>date</td>
+      <td><label>
+        <input type="date" name="textfield"   class="btn btn-light" style="width:140px;" required/>
+      </label>        <button name="Submit" value="submit" class="fa fa-search btn btn-secondary " style="font-size:20px;width:140px"> Search</button>
+</td>
+        <td colspan="8"><label>
+      </label>
+      </td>
+    </tr>
+    <tr>
+      <td>Sl.no</td>
+      <td>Date</td>
+      <td>Doubt</td>
+      <td>Proof</td>
+        <td>Staff</td>
+      <td>Reply</td>
+    </tr>
+      {% for i in val %}
+    <tr>
+      <td>{{ forloop.counter }}</td>
+      <td>{{ i.date }}</td>
+      <td>{{ i.doubt }}</td>
+      <td><img src="../media/{{ i.image }}" width="100dp" height="100dp"></td>
+        <td>{{ i.STAFF.name }}</td>
+
+      <td>{{ i.reply }}</td>
+    </tr>
+      {% endfor  %}
+    <tr>
+               <td colspan="13"><div align="center"><a href="add_doubt#about" class="btn btn-primary"><i style="font-size:24px" class="fa">&#xf067;</i></a></div></td>
+
+{#   <td colspan="8"><a href="add_doubt">Add</a> </td>#}
+{#      <t d colspan="5"><div align="center"><a href="add_doubt">Add doubt </a></div></td>#}
+    </tr>
+  </table>
+</form>
+</body>
+{% endblock %}

@@ -1,0 +1,38 @@
+{% extends 'Admin/adminindex.html' %}
+{% block body %}
+
+<body>
+<form id="form1" name="form1" method="post" action="">
+  <table width="200" border="1" class="table table-dark table-striped">
+    <tr align="center">
+        <td colspan="5"><h1><b>STAFF LAB ALLOCATION</b></h1>
+        </td>
+    </tr>
+    <tr>
+      <td>Sl.no</td>
+      <td>Lab subject </td>
+      <td>Staff</td>
+{#      <td>Day</td>#}
+{#      <td>Hour</td>#}
+      <td>&nbsp;</td>
+    </tr>{% for i in val %}
+    <tr>
+      <td>{{ forloop.counter }}</td>
+      <td>{{ i.SUBJECT.subject }}</td>
+      <td>{{ i.STAFF.name }}</td>
+{#      <td></td>#}
+{#      <td></td>#}
+      <td>
+          <p align="center"><a href="time_shedule_staff/{{ i.id }}#about" class="btn btn-secondary">Manage time shedule</a></p>
+          <p align="center"><a href="/editsub_staff/{{ i.id }}#about" class="btn btn-secondary"><i style="font-size:24px" class="fa">&#xf044;</i></a></p>
+      <p align="center"><a href="/dlt_sub_staff/{{ i.id }}#about" class="btn btn-danger"><i style="font-size:24px" class="fa">&#xf014;</i></a></p></td>
+    </tr>{% endfor %}
+    
+    <tr>
+      <td colspan="6"><div align="center"><a href="addsub_staff#about" class="btn btn-primary"><i style="font-size:24px" class="fa">&#xf067;</i></a></div></td>
+    </tr>
+  </table>
+</form>
+</body>
+{% endblock %}
+

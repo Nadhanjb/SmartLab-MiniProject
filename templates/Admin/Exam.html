@@ -1,0 +1,51 @@
+{% extends 'Admin/adminindex.html' %}
+{% block body %}
+
+<body>
+<form id="form1" name="form1" method="post" action="searchexm#about">
+  <table width="408" border="1" class="table table-dark table-striped">
+    <tr align="center">
+        <td colspan="10"><h1><b>EXAMS</b></h1>
+        </td>
+    </tr>
+    <tr>
+      <td colspan="10">Date<input type="date" name="dt" value="{{ val1 }}" class="btn btn-light" style="width:210px;">
+        <label>
+
+       <button name="Submit" value="submit" class="fa fa-search btn btn-secondary " style="font-size:20px;width:140px"> Search</button>
+      </label></td>
+    </tr>
+    <tr>
+      <td width="31">Sl.no</td>
+      <td width="68">Exam Name </td>
+      <td width="46">Subject</td>
+      <td width="41">Details</td>
+      <td width="62">Exam Date </td>
+      <td width="30">Time</td>
+      <td width="30">Duration(in hrs)</td>
+
+      <td width="54">Allotted staff </td>
+      <td width="24">&nbsp;</td>
+    </tr>{% for i in val %}
+    <tr>
+      <td>{{ forloop.counter }}</td>
+      <td>{{ i.exam_name }}</td>
+      <td>{{ i.SUBJECT.subject }}</td>
+      <td>{{ i.details }}</td>
+      <td>{{ i.date }}</td>
+      <td>{{ i.time }}</td>
+      <td>{{ i.duration }}</td>
+
+      <td>{{ i.STAFF.name }}</td>
+      <td><p align="center"><a href="{% url 'edit_exam' exam_id=i.id %}#about" class="btn btn-secondary"><i style="font-size:24px" class="fa">&#xf044;</i></a></p>
+      <p align="center"><a href="/dlt_exam/{{ i.id }}#about" class="btn btn-danger" onclick=" return confirm('Are you sure want to delete?')"><i style="font-size:24px" class="fa">&#xf014;</i></a></p></td>
+    </tr>{% endfor %}
+    
+    <tr>
+      <td colspan="10"><div align="center"><a href="addexam#about" class="btn btn-primary"><i style="font-size:24px" class="fa">&#xf067;</i></a></div></td>
+    </tr>
+  </table>
+</form>
+</body>
+{% endblock %}
+

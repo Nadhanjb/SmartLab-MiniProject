@@ -1,0 +1,44 @@
+{% extends 'Student/studindex.html' %}
+{% block body %}
+
+<body>
+<form action="add_doubt_action" method="post" enctype="multipart/form-data" name="form1" id="form1">
+  <table width="200" border="1" class="table table-dark table-striped">
+       <tr align="center">
+        <td colspan="9"><h1><b>DOUBT</b></h1>
+        </td>
+    </tr>
+      <tr>
+      <td>Staff</td>
+      <td><label>
+        <select name="select" class="btn btn-light" style="width:140px;">
+            {% for i in val  %}
+                <option value="{{ i.id }}" >{{ i.name }}</option>
+
+            {% endfor %}
+        </select>
+      </label></td>
+    </tr>
+    <tr>
+      <td>Proof</td>
+      <td><label>
+        <input type="file" name="file" class="btn btn-light" style="width:140px;"/>
+      </label></td>
+    </tr>
+    <tr>
+      <td>Doubt</td>
+      <td><label>
+        <textarea name="textarea" class="btn btn-light" style="width:600px;height: 200px;"></textarea>
+      </label></td>
+    </tr>
+
+    <tr>
+      <td colspan="2">
+                  <div align="center"> <input type="submit" name="Submit" value="Add" class="btn btn-secondary" /></div>
+
+     </td>
+    </tr>
+  </table>
+</form>
+</body>
+{% endblock %}

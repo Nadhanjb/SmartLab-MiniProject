@@ -1,0 +1,43 @@
+{% extends 'Lab-assistant/labindex.html' %}
+{% block body %}
+
+<body>
+<form id="form1" name="form1" method="post" action="system_search#about">
+  <table width="200" border="1" class="table table-dark table-striped">
+  <tr align="center">
+        <td colspan="5"><h1><b>COMPUTERS</b></h1>
+        </td>
+    </tr>
+    <tr>
+      <td colspan="5">System no.
+        <label>
+           <input type="text" name="t1" required value="{{ nm }}" class="btn btn-light" style="width:140px;">
+
+        <button name="Submit" value="submit" class="fa fa-search btn btn-secondary " style="font-size:20px;width:140px"> Search</button>
+      </label></td>
+    </tr>
+    <tr>
+      <td>Sl.no</td>
+      <td>System no </td>
+      <td>Description</td>
+      <td>Add date </td>
+      <td>&nbsp;</td>
+    </tr>
+      {% for i in val %}
+    <tr>
+      <td>&nbsp;{{ forloop.counter }}</td>
+      <td>&nbsp;{{ i.system_id }}</td>
+      <td>Processor: {{  i.processor }}<br>RAM: {{  i.RAM }}<br>HDD:{{  i.HDD }}<br>SSD: {{  i.SSD }}</td>
+      <td>&nbsp;{{ i.date }}</td>
+      <td><p><a href="edit_systems/{{ i.id }}#about" class="btn btn-secondary"><i style="font-size:24px" class="fa">&#xf044;</i></a></p>
+      <p><a href="dlt_system/{{ i.id }}#about" class="btn btn-danger" onclick=" return confirm('Are you sure want to delete?')"><i style="font-size:24px" class="fa">&#xf014;</i></a></p></td>
+    </tr>
+      {% endfor %}
+    <tr>
+      <td colspan="5"><div align="center"><a href="addsystems#about"class="btn btn-primary"><i style="font-size:24px" class="fa">&#xf067;</i></a></div></td>
+    </tr>
+  </table>
+</form>
+</body>
+</html>
+{% endblock %}

@@ -1,0 +1,42 @@
+{% extends 'Lab-assistant/labindex.html' %}
+{% block body %}
+<body>
+<form id="form1" name="form1" method="post" action="system_stud_allocation_s#about">
+  <table width="200" border="1" class="table table-dark table-striped">
+      <tr align="center">
+        <td colspan="9"><h1><b>STUDENT-SYSTEM ALLOCATION</b></h1>
+        </td>
+    </tr>
+    <tr>
+      <td colspan="3">System no.
+        <label>
+
+        <input type="text" name="t1" required value="{{ sys_no }}" class="btn btn-light" style="width:140px;">
+       <button name="Submit" value="submit" class="fa fa-search btn btn-secondary " style="font-size:20px;width:140px"> Search</button>
+        <td><a href="clear_system_stud_allo" class="btn btn-primary">Clear</a></td>
+
+      </label></td>
+    </tr>
+    <tr>
+      <td>Sl.no</td>
+
+        <td>Student</td>
+      <td>System no </td>
+
+      <td>&nbsp;</td>
+    </tr>{% for i in val %}
+    <tr>
+      <td>{{ forloop.counter }}</td>
+
+      <td>{{ i.STUDENT.fname }} {{ i.STUDENT.lname }}</td>
+        <td>{{ i.SYSTEM.system_id }}</td>
+      <td><p><a href="edit_system_stud/{{ i.id }}#about" class="btn btn-secondary"><i style="font-size:24px" class="fa">&#xf044;</i></a></p>
+      <p><a href="dlt_system_stud_allo/{{ i.id }}#about" class="btn btn-danger"><i style="font-size:24px" class="fa">&#xf014;</i></a></p></td>
+    </tr>{% endfor %}
+{#    <tr>#}
+{#      <td colspan="5"> <div align="center"><a href="add_system_stud#about" class="btn btn-primary"><i style="font-size:24px" class="fa">&#xf067;</i></a></div></td>#}
+{#    </tr>#}
+  </table>
+</form>
+</body>
+{% endblock %}

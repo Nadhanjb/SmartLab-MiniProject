@@ -1,0 +1,52 @@
+{% extends 'Lab-assistant/labindex.html' %}
+{% block body %}
+
+<body>
+<form id="form1" name="form1" method="post" action="{% url 'edit_systems_action' %}#about">
+  <table width="200" border="1" class="table table-dark table-striped">
+       <tr align="center">
+        <td colspan="9"><h1><b> EDIT SYSTEMS</b></h1>
+        </td>
+    </tr>
+    <tr>
+      <td>System no. </td>
+      <td><label>
+      <input type="text" name="t1" required value="{{ val.system_id }}" class="btn btn-light" style="width:210px;">
+      </label></td>
+    </tr>
+    <tr>
+      <td>Processor</td>
+      <td><label>
+        <input type="text" name="t2" required value="{{ val.processor }}" class="btn btn-light" style="width:210px;">
+      </label></td>
+    </tr>
+
+
+      <tr>
+      <td>RAM</td>
+      <td><label>
+        <input type="text" name="t3" required value="{{ val.RAM }}" class="btn btn-light" style="width:210px;">
+      </label></td>
+    </tr>
+      <tr>
+      <td>HDD</td>
+      <td><label>
+        <input type="text" name="t4" required value="{{ val.HDD }}" class="btn btn-light" style="width:210px;">
+      </label></td>
+    </tr>
+      <tr>
+      <td>SSD</td>
+      <td><label>
+        <input type="text" name="t5" required value="{{ val.SSD }}" class="btn btn-light" style="width:210px;">
+      </label></td>
+    </tr>
+    <tr>
+       <tr>
+      <td colspan="2"><div align="center"><input type="submit" name="Submit" value="Save" class="btn btn-secondary" /></div></td>
+    </tr>
+    </tr>
+  </table>
+</form>
+</body>
+</html>
+{% endblock %}

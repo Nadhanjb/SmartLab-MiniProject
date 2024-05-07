@@ -1,0 +1,52 @@
+{% extends 'Staff/staffindex.html' %}
+{% block body %}
+{#<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">#}
+{#<html xmlns="http://www.w3.org/1999/xhtml">#}
+{#<head>#}
+{#<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />#}
+{#<title>Untitled Document</title>#}
+{#</head>#}
+
+<body>
+<form id="form1" name="form1" method="post" action="viewexam_search#about">
+  <table width="200" border="1" class="table table-dark table-striped">
+       <tr align="center">
+        <td colspan="9"><h1><b>ALLOCATED EXAMS</b></h1>
+        </td>
+    </tr>
+    <tr>
+      <td colspan="8">Subject
+        <label>
+        <select name="select" class="btn btn-light" style="width:140px;">
+            {% for i in val  %}
+            <option value="{{ i.id }}" { % if i.id == sub % }selected{endif}>{{ i.subject }}</option>
+            {% endfor  %}
+        </select>
+            <button name="Submit" value="submit" class="fa fa-search btn btn-secondary " style="font-size:20px;width:140px"> Search</button>
+
+      </label></td>
+    </tr>
+    <tr>
+      <td>Sl.no</td>
+      <td>Exam name </td>
+      <td>lab subject </td>
+      <td>Details</td>
+      <td>Date</td>
+      <td>Time</td>
+      <td>Duration(in hrs)</td>
+    </tr>{% for i in val1 %}
+    <tr>
+      <td>{{ forloop.counter }}</td>
+      <td>{{ i.exam_name }}</td>
+      <td>{{ i.SUBJECT.subject }}</td>
+      <td>{{ i.details }}</td>
+      <td>{{ i.date }}</td>
+      <td>{{ i.time }}</td>
+        <td>{{ i.duration }}</td>
+
+    </tr>{% endfor %}
+  </table>
+</form>
+</body>
+{#</html>#}
+{% endblock %}

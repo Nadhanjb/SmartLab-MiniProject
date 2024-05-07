@@ -1,0 +1,51 @@
+{% extends 'Staff/staffindex.html' %}
+{% block body %}
+{#<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">#}
+{#<html xmlns="http://www.w3.org/1999/xhtml">#}
+{#<head>#}
+{#<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />#}
+{#<title>Untitled Document</title>#}
+{#</head>#}
+
+<body>
+<form id="form1" name="form1" method="post" action="view_notifi_search#about">
+  <table width="200" border="1" class="table table-dark table-striped">
+       <tr align="center">
+        <td colspan="9"><h1><b>NOTIFICATION</b></h1>
+        </td>
+    </tr>
+    <tr>
+      <td colspan="7">System no.
+        <label>
+        <select name="select" class="btn btn-light" style="width:140px;">
+            {% for i in val1  %}
+            <option value="{{ i.id }}" {% if i.id == val2 %} selected {% endif %}>{{ i.system_id }}</option>
+            {% endfor  %}
+        </select>
+            <button name="Submit" value="submit" class="fa fa-search btn btn-secondary " style="font-size:20px;width:140px"> Search</button>
+
+      </label></td>
+    </tr>
+    <tr>
+      <td>Sl.no</td>
+      <td>System no </td>
+      <td>Date and Time</td>
+      <td>Screen shot  </td>
+      <td>Camera image </td>
+      <td>&nbsp;</td>
+    </tr>{% for i in val %}
+    <tr>
+      <td>{{ forloop.counter }}</td>
+      <td>{{ i.SYSTEM.system_id }}</td>
+      <td>{{ i.timedate }}</td>
+
+      <td><img src="{{ i.screenshot.url}}" width="123" height="123"></td>
+      <td><img src="{{ i.camera_image.url }}" width="123" height="123"></td>
+      <td><a href="#">View</a></td>
+    </tr>
+      {% endfor %}
+  </table>
+</form>
+</body>
+{#</html>#}
+{% endblock %}
